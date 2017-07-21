@@ -13,7 +13,6 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
 
     
     var users: [User] = []
-    let ref: DatabaseReference = Database.database().reference()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,8 +22,8 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        
-        self.ref.child("users").observe(DataEventType.childAdded) { (snapshot) in
+        let ref: DatabaseReference = Database.database().reference()
+        ref.child("users").observe(DataEventType.childAdded) { (snapshot) in
             
             print (snapshot)
             
@@ -49,15 +48,6 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
         let user = users[indexPath.row]
         cell.textLabel?.text = user.email
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let user = users[indexPath.row]
-        
-        let snap = ["from":user.email, "description":"hello", "imageURL":"www.image.ya"]
-        
-        self.ref.child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
     }
     
 }
