@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1822FC321F2192DC00C88E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822FC311F2192DC00C88E17 /* AppDelegate.swift */; };
 		1822FC341F2192DC00C88E17 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822FC331F2192DC00C88E17 /* LoginViewController.swift */; };
-		1822FC371F2192DC00C88E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822FC351F2192DC00C88E17 /* Main.storyboard */; };
 		1822FC391F2192DC00C88E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1822FC381F2192DC00C88E17 /* Assets.xcassets */; };
 		1822FC3C1F2192DC00C88E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822FC3A1F2192DC00C88E17 /* LaunchScreen.storyboard */; };
 		1822FC461F21975C00C88E17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1822FC451F21975C00C88E17 /* GoogleService-Info.plist */; };
@@ -25,7 +24,6 @@
 		1822FC2E1F2192DC00C88E17 /* SnapClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1822FC311F2192DC00C88E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1822FC331F2192DC00C88E17 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		1822FC361F2192DC00C88E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1822FC381F2192DC00C88E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1822FC3B1F2192DC00C88E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1822FC3D1F2192DC00C88E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				18EE1BDF1F22917A00656484 /* ViewControllers */,
 				18EE1BE01F2291A900656484 /* Models */,
 				18EE1BD61F22769D00656484 /* SnapClone.entitlements */,
-				1822FC351F2192DC00C88E17 /* Main.storyboard */,
 				1822FC381F2192DC00C88E17 /* Assets.xcassets */,
 				1822FC3A1F2192DC00C88E17 /* LaunchScreen.storyboard */,
 				1822FC3D1F2192DC00C88E17 /* Info.plist */,
@@ -190,7 +187,6 @@
 				1822FC3C1F2192DC00C88E17 /* LaunchScreen.storyboard in Resources */,
 				1822FC461F21975C00C88E17 /* GoogleService-Info.plist in Resources */,
 				1822FC391F2192DC00C88E17 /* Assets.xcassets in Resources */,
-				1822FC371F2192DC00C88E17 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,14 +257,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1822FC351F2192DC00C88E17 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1822FC361F2192DC00C88E17 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1822FC3A1F2192DC00C88E17 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
