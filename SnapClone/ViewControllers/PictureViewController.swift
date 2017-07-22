@@ -10,23 +10,25 @@ import UIKit
 import FirebaseStorage
 
 class PictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
+    var uuid = NSUUID().uuidString
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         imagePicker.delegate = self
-    
+        nextButton.isEnabled = false
+        
     }
-
+    
     @IBAction func cameraTapped(_ sender: Any) {
         
-        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.sourceType = .camera
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
@@ -35,6 +37,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = image
         imageView.backgroundColor = UIColor.clear
+        nextButton.isEnabled = true
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
@@ -49,7 +52,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         
         
-        imagesFolder.child("\(NSUUID().uuidString).jpg").putData(imageData, metadata: nil, completion: {(metadata,error) in
+        imagesFolder.child("\(uuid).jpg").putData(imageData, metadata: nil, completion: {(metadata,error) in
             
             print("we tried to upload")
             if error != nil {
@@ -57,7 +60,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
             } else {
                 
                 print(metadata?.downloadURL() as Any)
-                self.performSegue(withIdentifier: "selectUserSegue", sender: nil)
+                self.performSegue(withIdentifier: "selectUserSegue", sender: metadata?.downloadURL()!.absoluteString)
                 
             }
         })
@@ -65,5 +68,13 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let nextVC = segue.destination as! SelectUserViewController
+        nextVC.imageURL = sender as! String
+        nextVC.descrip = descriptionTextField.text!
+        nextVC.uuid = uuid
+    }
+    
+    
 }

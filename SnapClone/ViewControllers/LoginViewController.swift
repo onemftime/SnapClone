@@ -11,14 +11,14 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class LoginViewController: UIViewController {
-
+    
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     
@@ -36,12 +36,12 @@ class LoginViewController: UIViewController {
                     if error != nil {
                         print("hey, we have an error:\(error!)")
                     }else {
-                       
+                        
                         let ref: DatabaseReference = Database.database().reference()
                         ref.child("users").child(user!.uid).child("email").setValue(user!.email!)
                         
                         print("created user successfully!")
-                         self.performSegue(withIdentifier: "loginsegue", sender: nil)                    }
+                        self.performSegue(withIdentifier: "loginsegue", sender: nil)                    }
                 })
                 
             }else {
